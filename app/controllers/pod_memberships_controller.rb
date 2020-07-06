@@ -1,6 +1,6 @@
 class PodMembershipsController < ApplicationController
   before_action :get_pod
-  before_action :set_membership, only: [:show, :update, :destroy]
+  # before_action :set_membership, only: [:show, :update, :destroy]
 
   def index
     @memberships = @pod.memberships
