@@ -1,6 +1,6 @@
 class EmployeePodsController < ApplicationController
   before_action :get_employee
-  # before_action :set_pod, only: [:show, :update, :destroy]
+  before_action :set_pod, only: [:show, :update, :destroy]
 
   def index
     @pods = @employee.pods

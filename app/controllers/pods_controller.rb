@@ -16,7 +16,8 @@ class PodsController < ApplicationController
     pod = Pod.new(pod_params)
 
     if pod.save
-      render json: { status: "SUCCESS", message: "Saved pod", data: pod }, status: :ok
+      render json: pod
+      # render json: { status: "SUCCESS", message: "Saved pod", data: pod }, status: :ok
     else
       render json: { status: "ERROR", message: "pod not saved", data: pod.errors }, status: :unprocessable_entity
     end
@@ -25,7 +26,8 @@ class PodsController < ApplicationController
   def update
     pod = Pod.find(params[:id])
     if pod.update_attributes(pod_params)
-      render json: { status: "SUCCESS", message: "Updated pod", data: pod }, status: :ok
+      render json: pod
+      # render json: { status: "SUCCESS", message: "Updated pod", data: pod }, status: :ok
     else
       render json: { status: "ERROR", message: "pod not updated", data: pod.errors }, status: :unprocessable_entity
     end
@@ -34,7 +36,8 @@ class PodsController < ApplicationController
   def destroy
     pod = Pod.find(params[:id])
     pod.destroy
-    render json: { status: "SUCCESS", message: "Deleted pod", data: pod }, status: :ok
+    render json: pod
+    # render json: { status: "SUCCESS", message: "Deleted pod", data: pod }, status: :ok
   end
 
   private
